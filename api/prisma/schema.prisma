@@ -9,3 +9,28 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id        Int     @id @default(autoincrement())
+  email     String  @unique
+  name      String?
+  isActive  Boolean @default(true)
+  votes Vote[]
+  // add user level admin / user
+}
+
+model Movie {
+  id    Int     @id @default(autoincrement())
+  votes Vote[]
+  // TODO: infere fields from IMDB website
+}
+
+model Vote {
+  id    Int @id
+  userId Int
+  movieId Int
+  movie Movie @relation(fields: [movieId], references: [id])
+  user User @relation(fields: [userId], references: [id])
+  
+  stars Int // TODO: improve naming and constraints
+}
