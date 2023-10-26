@@ -11,26 +11,48 @@ datasource db {
 }
 
 model User {
-  id        Int     @id @default(autoincrement())
-  email     String  @unique
-  name      String?
-  isActive  Boolean @default(true)
-  votes Vote[]
-  // add user level admin / user
+  id          Int           @id           @default(autoincrement())
+  
+  email       String        @unique
+  name        String
+  isAdmin     Boolean       @default(false)
+  isActive    Boolean       @default(true)
+
+  userRating  UserRating[]
 }
 
-model Movie {
-  id    Int     @id @default(autoincrement())
-  votes Vote[]
-  // TODO: infere fields from IMDB website
+model Title {
+  id          Int           @id   @default(autoincrement())
+  
+  type  String // TODO: use enum
+
+  title String
+  originalTitle String
+  year Int @db.SmallInt
+  runtimeMins Int
+
+  posterUrl String @db.VarChar(500)
+  trailerUrl String @db.VarChar(500)
+
+  genres Json // String[]
+  
+  directors Json // String[]
+  writers Json // String[]
+  stars Json // String[]
+  
+  // Relations
+  userRatings UserRating[]
 }
 
-model Vote {
+model UserRating {
   id    Int @id
+
   userId Int
-  movieId Int
-  movie Movie @relation(fields: [movieId], references: [id])
+  titleId Int
+  
+  rating Int // 1-10// TODO: improve naming and constraints
+  
+  title Title @relation(fields: [titleId], references: [id])
   user User @relation(fields: [userId], references: [id])
   
-  stars Int // TODO: improve naming and constraints
 }
