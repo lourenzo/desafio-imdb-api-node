@@ -11,23 +11,25 @@ datasource db {
 }
 
 model User {
-  id          Int           @id           @default(autoincrement())
+  id Int @id @default(autoincrement())
   
-  email       String        @unique
-  name        String
-  isAdmin     Boolean       @default(false)
-  isActive    Boolean       @default(true)
+  email String @unique
+  name String
 
-  userRating  UserRating[]
+  isAdmin Boolean @default(false)
+
+  isActive Boolean @default(true) // Soft Delete
+
+  userRatings UserRating[]
 }
 
 model Title {
-  id          Int           @id   @default(autoincrement())
+  id Int @id @default(autoincrement())
   
   type  String // TODO: use enum
 
-  title String
-  originalTitle String
+  title String @db.VarChar(500)
+  originalTitle String @db.VarChar(500)
   year Int @db.SmallInt
   runtimeMins Int
 
@@ -39,13 +41,38 @@ model Title {
   directors Json // String[]
   writers Json // String[]
   stars Json // String[]
+
+  isActive Boolean @default(true) // Soft Delete
   
   // Relations
   userRatings UserRating[]
+  cast Casting[]
+}
+
+model Actor {
+  id Int @id @default(autoincrement())
+
+  name String @db.VarChar(500)
+  pictureUrl String @db.VarChar(500)
+
+  castings Casting[]
+}
+
+model Casting {
+  id Int @id @default(autoincrement())
+  
+  titleId Int
+  actorId Int
+
+  name String @db.VarChar(500)
+  roles Json // String[]
+
+  title Title @relation(fields: [titleId], references: [id])
+  actor Actor @relation(fields: [actorId], references: [id])
 }
 
 model UserRating {
-  id    Int @id
+  id Int @id @default(autoincrement())
 
   userId Int
   titleId Int
@@ -54,5 +81,4 @@ model UserRating {
   
   title Title @relation(fields: [titleId], references: [id])
   user User @relation(fields: [userId], references: [id])
-  
 }
