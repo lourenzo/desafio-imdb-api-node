@@ -8,8 +8,7 @@
     "start": "npm run build && node dist/src/app.js",
     "clean": "rm -rf ./dist",
     "build": "prisma generate && tsc",
-    "clean-build": "npm run clean && npm run build",
-    "prepare": "ts-patch install"
+    "clean-build": "npm run clean && npm run build"
   },
   "author": "Lourenzo Ferreira <lourenzo@gmail.com>",
   "license": "ISC",
