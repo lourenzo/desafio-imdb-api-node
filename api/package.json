@@ -9,7 +9,9 @@
     "clean": "rm -rf ./dist",
     "build": "tsc",
     "clean-build": "npm run clean && npm run build",
-    "prepare": "prisma migrate deploy"
+    "seed": "ts-node prisma/seed.ts",
+    "migrate": "prisma db push",
+    "prepare": "npm run migrate && npm run seed"
   },
   "author": "Lourenzo Ferreira <lourenzo@gmail.com>",
   "license": "ISC",
@@ -30,6 +32,7 @@
     "reflect-metadata": "^0.1.13",
     "routing-controllers": "^0.10.4",
     "typedi": "^0.10.0",
+    "typia": "^5.2.4",
     "zod": "^3.22.4"
   },
   "prisma": {
