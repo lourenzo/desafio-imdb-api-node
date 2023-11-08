@@ -18,10 +18,15 @@
 Modelando dados a partir da API:
 https://developer.imdb.com/documentation/api-documentation/calling-the-api/?ref_=up_next
 
-Como a API é fechada e extremamente cara, e a documentação oficial não disponibiliza uma lista completa dos campos disponibilizados sem um acesso, encontrei algumas referências externas para ajudar a nortear os campos necessários, e também o front-end do site para determinar quais informações são necessárias para renderizar uma interface semelhante.
+A API é fechada, paga, e bastante cara, mas por sorte dispobibilizam uma versão não-comercial dos dados para download, e configuração.
 
 Referências:
+* https://developer.imdb.com/non-commercial-datasets/
+
+Antes de localizar esta versão, encontrei algumas referências externas para ajudar a nortear os campos necessários, e modelei os dados da API a partir dessas referências e também o front-end do próprio site do IMDB para determinar quais informações são necessárias para renderizar uma interface semelhante.
+
 * https://imdb-api.com/API#Title-header
+* https://imdb-api.com/en/API/Title/k_12345678/tt1375666/FullActor,Posters
 * https://github.com/kiendang/imdb-graphql
 
 
