@@ -1,35 +1,106 @@
 # Tasks
 
+- [Tasks](#tasks)
+  - [Modelagem dos dados](#modelagem-dos-dados)
+  - [Front-end](#front-end)
+  - [Authentication](#authentication)
+  - [Open API](#open-api)
+  - [Containerização](#containerização)
+
+
+## Modelagem dos dados
+
+
 - [ ] Puxar campos do IMDB
-- [ ] Refinar permissão de usuários
-- [ ] Adicionar inicialização post-install adicionando o generate do prisma, e também a instalação das migrations
-- [ ] Criar instância MySQL
-  - [x] docker run -p 3306:3306 --name globo-desafio-mysql -e MYSQL_ROOT_PASSWORD='$3nh4' -d mysql:8.1
-  - [x] docker run -it --network host --rm mysql mysql -h127.0.0.1 -uroot -p'$3nh4'
-  - [ ] Criar Database e usuário ao inicializar o container
-  - [ ] Importar migrations ao inicializar container
-- [ ] - (required) Use JWT to authenticate and authorize users
+  - [ ] Verificar se estão OK
 
 
 Modelando dados a partir da API:
 https://developer.imdb.com/documentation/api-documentation/calling-the-api/?ref_=up_next
 
+Como a API é fechada e extremamente cara, e a documentação oficial não disponibiliza uma lista completa dos campos disponibilizados sem um acesso, encontrei algumas referências externas para ajudar a nortear os campos necessários, e também o front-end do site para determinar quais informações são necessárias para renderizar uma interface semelhante.
+
+Referências:
+* https://imdb-api.com/API#Title-header
+* https://github.com/kiendang/imdb-graphql
+
+
+
 - [ ] Adicionar awards
 - [ ] Adicionar Cast completo
+- [ ] [opcional] incluir `startYear`, `endYear`, e suportar Séries e episódios?
 
 ---
 rip actors:
 Array.from(document.querySelectorAll("div[data-testid='title-cast-item'] img")).map((img, idx)=>({id: idx + 1, name: img.alt, pictureUrl: img.src}))
 
 
+## Front-end
+
+- [ ] Criar módulo frontend com interface
+  - [ ] Inicializar Repositório
+  - [ ] Modelar o front considerando um visual atraente mas uma implementação enxuta
+  - [ ] Implementar o Front-End usando testComponents para criar unitTests
+  - [ ] [Opcional] Criar suíte de teste e2e
 
 
----
+
+## Authentication
+
+- [ ] Refinar permissão de usuários
+  - [ ] Verificar regras
+  - [ ] Planejar implementação e testes
+
+
+- [ ] - (required) Use JWT to authenticate and authorize users
+  - [ ] Implementar a estrutura no backend
+  - [ ] implementar a parte no front-end para consumir
+  - [ ] testar ostensivamente o funcionamento
+  - [ ] [opcional] implementar testes e2e
+
+
 
 JWT:
 - https://jasonwatmore.com/nodejs-jwt-authentication-tutorial-with-example-api
 - https://www.geeksforgeeks.org/jwt-authentication-with-node-js/
 > nodejs authentication with jwt
+
+
+
+## Open API
+- [ ] Pesquisar solução OpenAPI que seja integrada com routing-controllers
+- [ ] Gerar documentação da API
+- [ ] Adicionar link da documentação da API na documentação markdown do projeto
+- [ ] [opcional] OpenAPI to Markdown?
+
+
+
+- [ ] Adicionar inicialização post-install adicionando o generate do prisma, e também a instalação das migrations
+
+
+- [ ] Reinstalar o prisma-zod , caso não seja possível, criar clone com versão atualizada (como instalar diretamente do github, fazer PR para o repo original, relatar isso para o pessoal e documentar)
+
+- [ ] Criar README.md com documentação dentro dos módulos
+
+
+## Containerização
+
+- [ ] Containerizar a api
+- [ ] Containerizar o front-end
+- [ ] Criar kubernetes pods e cluster
+
+
+- [ ] Criar instância MySQL
+  - [x] docker run -p 3306:3306 --name globo-desafio-mysql -e MYSQL_ROOT_PASSWORD='$3nh4' -d mysql:8.1
+  - [x] docker run -it --network host --rm mysql mysql -h127.0.0.1 -uroot -p'$3nh4'
+  - [ ] Criar Database e usuário ao inicializar o container
+  - [ ] Importar migrations ao inicializar container
+
+
+
+
+
+---
 
 
 Kubernetes deployments:
