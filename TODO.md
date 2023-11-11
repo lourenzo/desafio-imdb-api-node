@@ -11,8 +11,11 @@
 ## Modelagem dos dados
 
 
-- [ ] Puxar campos do IMDB
-  - [ ] Verificar se estão OK
+- [ ] Remodelar campos a partir do modelo fornecido no website, copiado abaixo
+  - [x] Verificar se estão OK
+  - [x] Reproduzir modelo como markdown
+  - [ ] Modelar no prisma
+  - [ ] [Opcional] extrair samples dos datasets para incluir no banco de dados e depois criar como migrations com mais filmes
 
 
 Modelando dados a partir da API:

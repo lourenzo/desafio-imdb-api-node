@@ -1,0 +1,80 @@
+@startuml "entities"
+entity "TitleBasics" as TitleBasics {
+    titleId : string <<generated>>
+}
+
+note right of TitleBasics::titleId 
+    a tconst, an alphanumeric unique identifier of the title
+end note
+
+
+entity TitleAkas {
+    titleId : string
+    ordering : integer
+    title : string
+    region : string
+    language : string
+    types : array
+    attributes : array
+    isOriginalTitle : boolean
+}
+
+entity TitleBasics {
+    titleType : string
+    primaryTitle : string
+    originalTitle : string
+    isAdult : boolean
+    startYear : YYYY
+    endYear : YYYY
+    runtimeMinutes :integer
+    genres : string array
+}
+
+entity TitleCrew {
+    titleId : tconst <<FK>>
+    directors : array of nconsts
+    writers : array of nconsts
+}
+
+entity TitleEpisode {
+    titleId : tconst <<FK>
+    parentTconst : string
+    seasonNumber : integer
+    episodeNumber : integer
+}
+
+entity TitlePrincipals {
+    titleId : tconst <<FK>>
+    ordering : integer
+    nconst : string
+    category : string
+    job : string
+    characters : string
+}
+
+entity TitleRatings {
+    titleId : tconst <<FK>>
+    averageRating :integer
+    numVotes :integer
+}
+
+entity NameBasics {
+    nconst : string
+    primaryName : string
+    birthYear :integer
+    deathYear :integer
+    primaryProfession : array of strings
+    knownForTitles : array of tconsts
+}
+
+TitleEpisode }o--|| TitleBasics
+
+TitleBasics ||--o{ TitleAkas
+TitleBasics ||--o| TitleCrew
+TitleBasics ||--o{ TitlePrincipals
+TitleBasics ||--o{ TitleRatings
+
+NameBasics ||--o{ TitlePrincipals
+
+
+@enduml
