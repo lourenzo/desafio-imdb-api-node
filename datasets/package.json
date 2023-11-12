@@ -1,0 +1,16 @@
+{
+  "name": "imdb-datasets",
+  "version": "1.0.0",
+  "description": "ToC\r - [IMDB Datasets](#imdb-datasets)\r   - [Data Structure](#data-structure)\r     - [IMDb Non-Commercial Datasets](#imdb-non-commercial-datasets)\r     - [Data Location](#data-location)\r     - [IMDb Dataset Details](#imdb-dataset-details)\r     - [title.akas.tsv.gz](#titleakastsvgz)\r     - [title.basics.tsv.gz](#titlebasicstsvgz)\r     - [title.crew.tsv.gz](#titlecrewtsvgz)\r     - [title.episode.tsv.gz](#titleepisodetsvgz)\r     - [title.principals.tsv.gz](#titleprincipalstsvgz)\r     - [title.ratings.tsv.gz](#titleratingstsvgz)\r     - [name.basics.tsv.gz](#namebasicstsvgz)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Lourenzo Ferreira <lourenzo@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "csv": "^6.3.5",
+    "ts-node": "^10.9.1",
+    "tsx": "^4.1.1"
+  }
+}
