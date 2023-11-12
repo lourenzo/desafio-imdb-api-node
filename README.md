@@ -28,3 +28,8 @@ npm start
 ```
 
 http://localhost:3000/titles
+
+
+## References
+
+see https://help.imdb.com/article/imdb/general-information/can-i-use-imdb-data-in-my-software/G5JTRESSHJBBHTGX#

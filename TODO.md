@@ -15,6 +15,8 @@
   - [x] Verificar se estão OK
   - [x] Reproduzir modelo como markdown
   - [ ] Modelar no prisma
+    - Usando https://github.com/emyann/prisma-uml para gerar o modelo
+    - [ ] Melhorar modelagem de names e principals, usando categorização
   - [ ] [Opcional] extrair samples dos datasets para incluir no banco de dados e depois criar como migrations com mais filmes
 
 

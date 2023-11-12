@@ -1,0 +1,63 @@
+@startuml
+
+skinparam linetype ortho
+
+entity User {
+  * id: Int
+  * email: String
+  * name: String
+  * isAdmin: Boolean
+  * isActive: Boolean
+  * userRatings: UserRating[]
+}
+
+entity Title {
+  * id: Int
+  * type: String
+  * title: String
+  * originalTitle: String
+  * year: Int
+  * runtimeMins: Int
+  * posterUrl: String
+  trailerUrl: String?
+  * genres: Json
+  * directors: Json
+  * writers: Json
+  * stars: Json
+  * isActive: Boolean
+  * userRatings: UserRating[]
+  * cast: Casting[]
+}
+
+entity Actor {
+  * id: Int
+  * name: String
+  pictureUrl: String?
+  * castings: Casting[]
+}
+
+entity Casting {
+  * id: Int
+  * titleId: Int
+  * actorId: Int
+  * roles: Json
+  * title: Title
+  * actor: Actor
+}
+
+entity UserRating {
+  * id: Int
+  * userId: Int
+  * titleId: Int
+  * rating: Int
+  * title: Title
+  * user: User
+}
+
+User ||..|{ UserRating
+Title ||..|{ UserRating
+Actor ||..|{ Casting
+Title ||..|{ Casting
+User ||..|{ UserRating
+
+@enduml
