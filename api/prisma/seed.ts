@@ -63,7 +63,7 @@ const actors: Prisma.ActorUncheckedCreateInput[] = [
   },
   {
     id: 10,
-    name: "Frank Miller"
+    name: "Frank Miller",
   },
   {
     id: 11,
@@ -169,11 +169,11 @@ const actors: Prisma.ActorUncheckedCreateInput[] = [
   },
   {
     id: 28,
-    name: 'Hamilton von Watts'
+    name: "Hamilton von Watts",
   },
   {
     id: 29,
-    name: 'Tony Carlin'
+    name: "Tony Carlin",
   },
   {
     id: 30,
@@ -207,7 +207,7 @@ const actors: Prisma.ActorUncheckedCreateInput[] = [
   },
   {
     id: 35,
-    name: 'Lisa Halpern'
+    name: "Lisa Halpern",
   },
   {
     id: 36,
@@ -244,192 +244,201 @@ const titles: Prisma.TitleUncheckedCreateInput[] = [
     directors: ["Tom Shadyac"],
     writers: ["Jerry Lewis", "Bill Richmond", "David Sheffield"],
     stars: ["Eddie Murphy", "Jada Pinkett Smith", "James Coburn"],
-    posterUrl: "https://m.media-amazon.com/images/M/MV5BMTcwODlmZDktNWRkOC00NTFlLTkyMjQtYWUxMzZkNDE4MGVmXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_QL75_UX380_CR0,5,380,562_.jpg",
-    trailerUrl: "https://www.youtube.com/watch?v=o3wJ-jzZqBw"
-  }
+    posterUrl:
+      "https://m.media-amazon.com/images/M/MV5BMTcwODlmZDktNWRkOC00NTFlLTkyMjQtYWUxMzZkNDE4MGVmXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_QL75_UX380_CR0,5,380,562_.jpg",
+    trailerUrl: "https://www.youtube.com/watch?v=o3wJ-jzZqBw",
+  },
 ];
 
-const castings : Prisma.CastingUncheckedCreateInput[] = [
+const castings: Prisma.CastingUncheckedCreateInput[] = [
   {
     titleId: 1,
     actorId: 1,
-    roles: ['Dr. Dave Bowman']
+    roles: ["Dr. Dave Bowman"],
   },
   {
     titleId: 1,
     actorId: 2,
-    roles: ['Dr. Frank Poole']
+    roles: ["Dr. Frank Poole"],
   },
   {
     titleId: 1,
     actorId: 3,
-    roles: ['Dr. Heywood R. Floyd']
+    roles: ["Dr. Heywood R. Floyd"],
   },
   {
     titleId: 1,
     actorId: 4,
-    roles: ['Moon-Watcher']
+    roles: ["Moon-Watcher"],
   },
   {
     titleId: 1,
     actorId: 5,
-    roles: ['Dr. Andrei Smyslov']
+    roles: ["Dr. Andrei Smyslov"],
   },
   {
     titleId: 1,
     actorId: 6,
-    roles: ['Elena']
+    roles: ["Elena"],
   },
   {
     titleId: 1,
     actorId: 7,
-    roles: ['Dr. Ralph Halvorsen']
+    roles: ["Dr. Ralph Halvorsen"],
   },
   {
     titleId: 1,
     actorId: 8,
-    roles: ['Dr. Bill Michaels']
+    roles: ["Dr. Bill Michaels"],
   },
   {
     titleId: 1,
     actorId: 9,
-    roles: ['HAL 9000 (narração)']
+    roles: ["HAL 9000 (narração)"],
   },
   {
     titleId: 1,
     actorId: 10,
-    roles: ['Mission Controller (narração)']
+    roles: ["Mission Controller (narração)"],
   },
   {
     titleId: 1,
     actorId: 11,
-    roles: ['Astronaut']
+    roles: ["Astronaut"],
   },
   {
     titleId: 1,
     actorId: 12,
-    roles: ['Aries-1B Lunar Shuttle Captain']
+    roles: ["Aries-1B Lunar Shuttle Captain"],
   },
   {
     titleId: 1,
     actorId: 13,
-    roles: ['Astronaut']
+    roles: ["Astronaut"],
   },
   {
     titleId: 1,
     actorId: 14,
-    roles: ["Poole's Father"]
+    roles: ["Poole's Father"],
   },
   {
     titleId: 1,
     actorId: 15,
-    roles: ["Poole's Mother"]
+    roles: ["Poole's Mother"],
   },
   {
     titleId: 1,
     actorId: 16,
-    roles: ['Aries-1B Stewardess']
+    roles: ["Aries-1B Stewardess"],
   },
   {
     titleId: 1,
     actorId: 17,
-    roles: ['Stewardess']
+    roles: ["Stewardess"],
   },
   {
     titleId: 1,
     actorId: 18,
-    roles: ['Stewardess']
+    roles: ["Stewardess"],
   },
   {
     titleId: 2,
     actorId: 19,
-    roles: ["Sherman Klump", "Buddy Love", "Lance Perkins", "Papa Klump", "Mama Klump", "Granma Klump", "Ernie Klump"]
+    roles: [
+      "Sherman Klump",
+      "Buddy Love",
+      "Lance Perkins",
+      "Papa Klump",
+      "Mama Klump",
+      "Granma Klump",
+      "Ernie Klump",
+    ],
   },
   {
     titleId: 2,
     actorId: 20,
-    roles: ['Carla Purty']
+    roles: ["Carla Purty"],
   },
   {
     titleId: 2,
     actorId: 21,
-    roles: ['Harlan Hartley']
+    roles: ["Harlan Hartley"],
   },
   {
     titleId: 2,
     actorId: 22,
-    roles: ['Dean Richmond']
+    roles: ["Dean Richmond"],
   },
   {
     titleId: 2,
     actorId: 23,
-    roles: ['Reggie Warrington']
+    roles: ["Reggie Warrington"],
   },
   {
     titleId: 2,
     actorId: 24,
-    roles: ['Jason']
+    roles: ["Jason"],
   },
   {
     titleId: 2,
     actorId: 25,
-    roles: ["Dean's Secretary"]
+    roles: ["Dean's Secretary"],
   },
   {
     titleId: 2,
     actorId: 26,
-    roles: ['Ernie Klump Jr.']
+    roles: ["Ernie Klump Jr."],
   },
   {
     titleId: 2,
     actorId: 27,
-    roles: ['Fit Woman']
+    roles: ["Fit Woman"],
   },
   {
     titleId: 2,
     actorId: 28,
-    roles: ['Health Instructor']
+    roles: ["Health Instructor"],
   },
   {
     titleId: 2,
     actorId: 29,
-    roles: ['Host']
+    roles: ["Host"],
   },
   {
     titleId: 2,
     actorId: 30,
-    roles: ['Bartender']
+    roles: ["Bartender"],
   },
   {
     titleId: 2,
     actorId: 31,
-    roles: ['Montell Jordan']
+    roles: ["Montell Jordan"],
   },
   {
     titleId: 2,
     actorId: 32,
-    roles: ['Band Leader']
+    roles: ["Band Leader"],
   },
   {
     titleId: 2,
     actorId: 33,
-    roles: ['Student']
+    roles: ["Student"],
   },
   {
     titleId: 2,
     actorId: 34,
-    roles: ['Student']
+    roles: ["Student"],
   },
   {
     titleId: 2,
     actorId: 35,
-    roles: ['Sad Fat Girl']
+    roles: ["Sad Fat Girl"],
   },
   {
     titleId: 2,
     actorId: 36,
-    roles: ['Doctor']
-  }
+    roles: ["Doctor"],
+  },
 ];
 
 (async () => {

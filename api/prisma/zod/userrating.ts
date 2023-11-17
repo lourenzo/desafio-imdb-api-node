@@ -1,16 +1,21 @@
-import * as z from "zod"
-import { CompleteTitle, RelatedTitleModel, CompleteUser, RelatedUserModel } from "./index"
+import * as z from "zod";
+import {
+  CompleteTitle,
+  RelatedTitleModel,
+  CompleteUser,
+  RelatedUserModel,
+} from "./index";
 
 export const UserRatingModel = z.object({
   id: z.number().int(),
   userId: z.number().int(),
   titleId: z.number().int(),
   rating: z.number().int(),
-})
+});
 
 export interface CompleteUserRating extends z.infer<typeof UserRatingModel> {
-  title: CompleteTitle
-  user: CompleteUser
+  title: CompleteTitle;
+  user: CompleteUser;
 }
 
 /**
@@ -18,7 +23,10 @@ export interface CompleteUserRating extends z.infer<typeof UserRatingModel> {
  *
  * NOTE: Lazy required in case of potential circular dependencies within schema
  */
-export const RelatedUserRatingModel: z.ZodSchema<CompleteUserRating> = z.lazy(() => UserRatingModel.extend({
-  title: RelatedTitleModel,
-  user: RelatedUserModel,
-}))
+export const RelatedUserRatingModel: z.ZodSchema<CompleteUserRating> = z.lazy(
+  () =>
+    UserRatingModel.extend({
+      title: RelatedTitleModel,
+      user: RelatedUserModel,
+    }),
+);
