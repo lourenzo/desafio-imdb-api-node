@@ -78,6 +78,9 @@ JWT:
 
 
 ## Open API
+
+https://github.com/epiphone/routing-controllers-openapi/blob/master/sample/01-basic/UsersController.ts  
+
 - [ ] Pesquisar solução OpenAPI que seja integrada com routing-controllers
 - [ ] Gerar documentação da API
 - [ ] Adicionar link da documentação da API na documentação markdown do projeto
@@ -108,6 +111,7 @@ JWT:
 
 
 
+- [ ] Incluir husky para demonstrar git-hooks
 
 
 ---
