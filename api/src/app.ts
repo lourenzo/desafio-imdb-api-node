@@ -12,8 +12,8 @@ Container.set("dbConn", databaseConnection);
 useContainer(Container);
 
 // Create and run server
-createKoaServer({
-}).listen(3000);
-
+const app = createKoaServer({
   controllers: [path.join(__dirname, "/controllers/*")],
+});
 
+export default app;

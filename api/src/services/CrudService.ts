@@ -23,7 +23,7 @@ export default class CrudService {
     try {
       return this.repository.create({ data });
     } catch (err: any) {
-        return new BadRequestError(err.message);
+      throw new BadRequestError(err.message);
     }
   }
 
