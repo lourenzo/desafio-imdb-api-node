@@ -26,48 +26,55 @@ model User {
 model Title {
   id Int @id @default(autoincrement())
 
-  type String // TODO: use enum
+  tconst String @db.VarChar(10)
+  titleType String @db.VarChar(16)// TODO: use enum @map("type")
 
-  title         String @db.VarChar(500)
+  primaryTitle         String @db.VarChar(500)
   originalTitle String @db.VarChar(500)
+  isAdult Boolean
+  startYear Int @db.SmallInt
+  endYear Int @db.SmallInt
   year          Int    @db.SmallInt
-  runtimeMins   Int
+  runtimeMinutes   Int
 
   posterUrl  String  @db.VarChar(500)
   trailerUrl String? @db.VarChar(500)
 
-  genres Json // String[]
+  genres Json /// String[]
 
-  directors Json // String[]
-  writers   Json // String[]
-  stars     Json // String[]
+  directors Json /// String[]
+  writers   Json /// String[]
 
-  isActive Boolean @default(true) // Soft Delete
+  stars     Json /// String[]
+
+  isActive Boolean @default(true) /// Soft Delete
 
   // Relations
   userRatings UserRating[]
-  cast        Casting[]
+  principals        TitlePrincipals[]
 }
 
-model Actor {
+model Name {
   id Int @id @default(autoincrement())
 
   name       String  @db.VarChar(500)
   pictureUrl String? @db.VarChar(500)
 
-  castings Casting[]
+  knowForTitles TitlePrincipals[]
 }
 
-model Casting {
+model TitlePrincipals {
   id Int @id @default(autoincrement())
 
   titleId Int
-  actorId Int
+  ordering Int
+
+  nameId Int
 
   roles Json // String[]
 
   title Title @relation(fields: [titleId], references: [id])
-  actor Actor @relation(fields: [actorId], references: [id])
+  actor Name @relation(fields: [nameId], references: [id])
 }
 
 model UserRating {
