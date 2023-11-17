@@ -12,7 +12,8 @@
     "seed": "ts-node prisma/seed.ts",
     "migrate": "prisma db push",
     "prepare": "npm run migrate && npm run seed",
-    "dev": "nodemon src/server.ts"
+    "dev": "nodemon src/server.ts",
+    "prettier": "prettier -w **/*.{ts,js}"
   },
   "author": "Lourenzo Ferreira <lourenzo@gmail.com>",
   "license": "ISC",
