@@ -11,7 +11,7 @@ export default class UnprocessableEntityError extends HttpError {
     return {
       status: this.httpCode,
       message: "Unprocessable Entity. Error validating request input.",
-      errorDetails: this.zodError
+      errorDetails: this.zodError,
     };
   }
 }

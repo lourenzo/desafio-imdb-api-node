@@ -7,7 +7,6 @@ import {
   Post,
   Put,
   Delete,
-  BadRequestError,
 } from "routing-controllers";
 import { Service } from "typedi";
 import { Prisma } from "@prisma/client";
@@ -40,7 +39,8 @@ export class TitlesController {
       console.error(validation.error);
       return new UnprocessableEntityError(validation.error);
     }
-    console.log({validation});
+    console.log({ validation });
+
     return this.titlesService.create<Prisma.TitleCreateInput>(title);
   }
 

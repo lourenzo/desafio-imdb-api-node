@@ -1,5 +1,4 @@
-import { PrismaClient, Prisma } from "@prisma/client";
-import { HttpError } from "koa";
+import { Prisma } from "@prisma/client";
 import { BadRequestError, NotFoundError } from "routing-controllers";
 import Container from "typedi";
 import { z } from "zod";
@@ -22,7 +21,7 @@ export default class CrudService {
 
   create<Type>(data: Type) {
     try {
-        return this.repository.create({ data });
+      return this.repository.create({ data });
     } catch (err: any) {
         return new BadRequestError(err.message);
     }
