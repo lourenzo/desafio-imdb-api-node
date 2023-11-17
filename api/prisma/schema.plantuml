@@ -1,4 +1,4 @@
-@startuml
+@startuml "PrismaSchema"
 
 skinparam linetype ortho
 
@@ -54,15 +54,10 @@ entity UserRating {
   * user: User
 }
 
-User ||..|{
-  UserRating
-  Title ||..|{
-    UserRating
-    Actor ||..|{
-      Casting
-      Title ||..|{
-        Casting
-        User ||..|{
-          UserRating
+User ||..|{ UserRating
+Title ||..|{ UserRating
+Actor ||..|{ Casting
+Title ||..|{ Casting
+User ||..|{ UserRating
 
-          @enduml
+@enduml
